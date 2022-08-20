@@ -1,12 +1,14 @@
 <!doctype html>
-<title>{% block title %}{% endblock %} - Flaskr</title>
+<title>{% block title %}{% endblock %} - BlogFlask</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <nav>
-  <h1>Flaskr</h1>
+  <h1>BlogFlask</h1>
   <ul>
+      <li><a href="{{ url_for('tag.show_tags') }}">Tags</a>
     {% if g.user %}
       <li><span>{{ g.user['username'] }}</span>
       <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
+      <li><a href="{{ url_for('tag.create_tag') }}">Create Tag</a>
     {% else %}
       <li><a href="{{ url_for('auth.register') }}">Register</a>
       <li><a href="{{ url_for('auth.login') }}">Log In</a>

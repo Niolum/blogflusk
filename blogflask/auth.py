@@ -58,8 +58,9 @@ def login():
 
         if error is None:
             session.clear()
-            session['user_id'] = ['id']
-            return redirect(url_for('index'))
+            session['user_id'] = user['id']
+            # return redirect(url_for('auth.logout'))
+            # return redirect(url_for('index'))
 
         flash(error)
 
